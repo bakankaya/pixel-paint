@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* font-family: 'Press Start 2P', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); /* font-family: 'IBM Plex Sans', sans-serif; */
+
+:root {
+    --color-bg: #4f4f4f;
+    --color-bg2: #a6a5a5;
+    --color-fnt: #f2777a;
+    --color-fnt2: #86b186;
+    --color-fnt3: #66cccc;
+    --color-cnvs-bg: #282828;
+    --color-cnvs-shd: #333333;
+    
+}
+
+*{
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    overflow:visible;
+    
+}
+html{
+    position: relative;
+    min-height: 100%;
+    background-color: var(--color-bg);
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: lightgrey;
+}
+
+h2{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 36px;
+    text-shadow: 1px 1px #f2777a ;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+
+.main{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto 0 200px;
+}
+
+#control-panel{
+    width: 300px;
+    padding: 15px;
+    background-color: var(--color-cnvs-shd);
+    border-radius: 10px;
+}
+
+.current-color{
+    align-items: center;
+}
+
+input[type=color]{
+    height: 35px;
+    width: 70px;
+}
+
+
+button{
+    background-color: var(--color-bg2);
+    color: var(--color-cnvs-bg);
+    width: 260px;
+    height: 35px;
+    border-radius: 3px;
+    border: 2px solid var(--color-fnt);
+    font-family: 'IBM Plex Sans', sans-serif; 
+    font-size: 18px;
+    margin: 5px;
+}
+
+input[type=range]{
+    width: 260px;
+}
+
+
+#canvas{
+    width:660px;
+    height: 660px;
+    margin:auto;
+    display: grid;  
+    background-color: var(--color-cnvs-shd);  
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.pixel{
+    background-color: white;
+    /* border: none; */
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: lightgrey;
+    font-family: 'Press Start 2P', cursive;
+    font-size: smaller;
+    text-align: center;
+}
