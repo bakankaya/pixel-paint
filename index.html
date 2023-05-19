@@ -14,12 +14,15 @@
     <div class="main">
     <div id="control-panel">
         <div class="current-color">
-            <input type="color"><span>Current Color</span>
+            <input id="current-color" type="color" value="#000000"><span>Current Color</span>
         </div>
-        <button>Choose Color</button>
+        <div class="backg-color">
+            <input type="color"><span>Background Color</span>
+        </div>
         <button>Eye Dropper</button>
         <button>Color Fill</button>
-        <button>Eraser</button>
+        <button id="paint" class="active">Paint  Mode</button>
+        <button id="eraser">Eraser Mode</button>
         <button>Toggle Grid Lines</button>
         <div>
             <label for="grid-size">Grid Size:</label><output id="show-num"></output><br>
@@ -33,38 +36,14 @@
             </datalist>
         </div>
         <button>Reset</button>
+        <button id="save">Save</button>
     </div>
-    <div id="canvas"></div>
+    <div id="canvas" draggable="false"></div>
     </div>
     <footer>
         <p>2023 &copy; bakankaya
-        <a href="https://github.com/bakankaya" target="_blank"><img src="sources/github-mark.png" alt="github" style="width:20px; border:initial"></a></p></footer>
-    <script>
-        let gridnum = document.querySelector('#grid-size');
-        let show = document.querySelector('#show-num');
-        show.textContent = gridnum.value + "x" + gridnum.value;
-        let num = gridnum.value;
-        gridnum.addEventListener("input",(event) =>{
-            show.textContent = event.target.value + "x" + event.target.value;
-        })
-
-
-
-        function createCanvas(num){
-            let pixelSize = 600/num;
-            document.querySelector('#canvas').style.gridTemplateColumns = `repeat(${num},${pixelSize}px)`;
-            document.querySelector('#canvas').style.gridTemplateRows = `repeat(${num},${pixelSize}px)`;
-
-            for(let i=0;i<num*num;i++){
-                let pixel = document.createElement("div");
-                pixel.className = "pixel";
-                document.querySelector('#canvas').appendChild(pixel);  
-        };
-    };
-    createCanvas(num);
-
-    
-
-    </script>
+        <a href="https://github.com/bakankaya" target="_blank"><img src="sources/github-mark.png" alt="github" style="width:20px; border:initial"></a></p>
+    </footer>
+    <script src="pixel-paint.js"></script>
 </body>
 </html>

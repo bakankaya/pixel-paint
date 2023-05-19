@@ -58,8 +58,8 @@ h2{
 }
 
 input[type=color]{
-    height: 35px;
-    width: 70px;
+    height: 45px;
+    width: 100px;
 }
 
 
@@ -73,6 +73,10 @@ button{
     font-family: 'IBM Plex Sans', sans-serif; 
     font-size: 18px;
     margin: 5px;
+}
+
+button.active{
+    background-color: blue;
 }
 
 input[type=range]{
