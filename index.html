@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
     <title>Pixel Paint</title>
 
@@ -11,39 +11,43 @@
 </head>
 <body>
     <h2>Pixel Paint</h2>
+    <p id="message">This webpage is designed to work on desktop. On touchscreens it may not work well.</p>
     <div class="main">
     <div id="control-panel">
-        <div class="current-color">
-            <input id="current-color" type="color" value="#000000"><span>Current Color</span>
-        </div>
-        <div class="backg-color">
-            <input type="color"><span>Background Color</span>
-        </div>
-        <button>Eye Dropper</button>
-        <button>Color Fill</button>
-        <button id="paint" class="active">Paint  Mode</button>
-        <button id="eraser">Eraser Mode</button>
-        <button>Toggle Grid Lines</button>
-        <div>
-            <label for="grid-size">Grid Size:</label><output id="show-num"></output><br>
-            <input id="grid-size" type="range" min="8" max="64" value="16" step="4" list="markers">
-            <datalist id="markers">
-                <option value="8" label="8"></option>
-                <option value="16" label="16"></option>
-                <option value="32" label="32"></option>
-                <option value="48" label="48"></option>
-                <option value="64" label="64"></option>
-            </datalist>
-        </div>
-        <button>Reset</button>
+        <fieldset><legend>Color Options</legend>
+            <div class="current-color">
+                <input id="current-color" type="color" value="#000000"><span>Current Color</span>
+            </div>
+            <button id="paint" class="active">Paint  Mode</button>
+            <button id="eraser">Eraser Mode</button>
+            <button id="toggle">Toggle Grid Lines</button>
+        </fieldset>
+        <fieldset><legend>Canvas Options</legend>
+            <div class="backg-color">
+                <input id="backg-color" type="color" value="#ffffff"><span>Background Color</span>
+            </div>
+            <div>
+                <label id="grd-size" for="grid-size">Grid Size:</label><output id="show-num"></output><br>
+                <input id="grid-size" type="range" min="8" max="64" value="16" step="4" list="markers">
+                <datalist id="markers">
+                    <option value="8" label="8" style="flex: 1;"></option>
+                    <option value="16" label="16" style="flex: 2;"></option>
+                    <option value="32" label="32" style="flex: 2;"></option>
+                    <option value="48" label="48" style="flex: 2;"></option>
+                    <option value="64" label="64" style="flex: 1;"></option>
+                </datalist>
+            </div>
+            <button id="apply">Apply/Reset</button>
+        </fieldset>
         <button id="save">Save</button>
+        <div id="footer">
+            <p>2023 &copy; bakankaya
+            <a href="https://github.com/bakankaya" target="_blank"><img src="sources/github-mark-white.png" alt="github" style="width:20px; border:initial"></a></p>
+        </div>
     </div>
     <div id="canvas" draggable="false"></div>
     </div>
-    <footer>
-        <p>2023 &copy; bakankaya
-        <a href="https://github.com/bakankaya" target="_blank"><img src="sources/github-mark.png" alt="github" style="width:20px; border:initial"></a></p>
-    </footer>
+
     <script src="pixel-paint.js"></script>
 </body>
 </html>
