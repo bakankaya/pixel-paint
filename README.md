@@ -16,4 +16,4 @@ Things that I plan on implement:
 And some ideas to improve:
 
 - colorpicker to take from canvas
-- reently used colorus as a menu
+- recently used colors as a menu option
