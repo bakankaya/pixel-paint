@@ -18,11 +18,9 @@
     margin:0;
     padding: 0;
     overflow:visible;
-    
 }
 
 html{
-    position: relative;
     min-height: 100%;
     background-color: var(--color-bg);
     font-family: 'IBM Plex Sans', sans-serif;
@@ -50,16 +48,16 @@ h2{
     align-items: center;
     justify-content: flex-start;
     max-width: 1200px;
-    margin: 0 auto 0 220px;
+    margin:auto ;
 }
 
 /********************************************************************
 The control panel side parameters
-These are placed by hand with margins and stuff, so thread carefully 
+These are placed by hand with margins and stuff, so thread carefully
 *********************************************************************/
 
 #control-panel{
-    width: 310px;
+    width: 380px;
     height: 660px;
     padding: 15px;
     background-color: var(--color-cnvs-shd);
@@ -68,9 +66,63 @@ These are placed by hand with margins and stuff, so thread carefully
 }
 
 fieldset{
+    position: relative;
     border:2px ridge var(--color-fnt);
     margin-bottom: 36px;
     margin-top: 4px;
+}
+
+#wrapper{
+    position: relative;
+    height: 45px;
+    width: 360px;
+}
+.Hue{
+    border: black solid 1px;
+    height: 40px;
+    width: 360px;
+    display: grid;
+    position: absolute;
+}
+.Sat{
+    border: black solid 1px;
+    height: 40px;
+    width: 360px;
+    display: grid;
+    position: absolute;
+}
+.Light{
+    border: black solid 1px;
+    height: 40px;
+    width: 360px;
+    display: grid;
+    position: absolute;
+}
+
+.slider{
+    border: black solid 1px;
+    height: 40px;
+    width: 360px;
+    background: none;
+    position: absolute;
+}
+
+.slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 3px;
+height: 46px;
+background: none;
+cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+width: 2px;
+height: 43px;
+background: none;
+border: black solid 3px;
+border-radius: 0%;
+cursor: pointer;
 }
 
 legend{
@@ -103,7 +155,7 @@ button{
     height: 35px;
     border-radius: 3px;
     border: 2px solid var(--color-fnt);
-    font-family: 'IBM Plex Sans', sans-serif; 
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
     margin: 6px;
 }
@@ -112,7 +164,7 @@ button.active{
     background-color: var(--color-bg3);
 }
 
-input[type=range]{
+#grid-size{
     padding: 6px;
     width: 260px;
     margin-left: 6px;
@@ -134,15 +186,15 @@ datalist{
 
 
 /********************************************************************
-The canvas side parameters 
+The canvas side parameters
 *********************************************************************/
 
 #canvas{
     width:660px;
     height: 660px;
     margin:auto;
-    display: grid;  
-    background-color: var(--color-cnvs-shd);  
+    display: grid;
+    background-color: var(--color-cnvs-shd);
     padding: 30px;
     border-radius: 10px;
 }
