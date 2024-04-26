@@ -12,8 +12,11 @@ Things that I plan on implement:
 - zoom in/out
 - shading
 - save file option
+- center and maybe pointers to use a ruler
+
 
 And some ideas to improve:
 
 - colorpicker to take from canvas
 - recently used colors as a menu option
+- automatic shape creator
