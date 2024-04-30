@@ -12,14 +12,8 @@ if (window.innerWidth < 500){
 // Color Definers
 //***************************************************************************
 
-let color = document.querySelector('#current-color').value;
 let bgcolor = document.querySelector('#backg-color').value;
 
-
-let currentcolor = document.querySelector('#current-color');
-currentcolor.addEventListener('input', e =>{
-    color = e.target.value;
-})
 
 let backgroundColor = document.querySelector('#backg-color');
 backgroundColor.addEventListener('input', e =>{
@@ -103,75 +97,115 @@ createCanvas(num);
 // HSL Sliders
 //***************************************************************************
 
-function hueslider(){
+function hueSliderCrt(){
     let min = 360/360;
-    document.querySelector('.Hue').style.gridTemplateColumns =  `repeat(361, ${min}px)`;
+    document.querySelector('.Hue').style.gridTemplateColumns =  `repeat(360, ${min}px)`;
 
-    for(let j=0; j<=360; j++){
+    for(let j=1; j<=360; j++){
         let miin = document.createElement("div");
-        miin.className = "miin-clr";
         miin.style.backgroundColor = `hsl(${j},100%, 50%)`;
         document.querySelector('.Hue').appendChild(miin);
     }
 }
+hueSliderCrt();
 
-hueslider();
+let hueValue = 0;
+let allHueValues = document.querySelectorAll(".hueValues");
 
-var slider = document.getElementById("hueRange");
-var output = document.getElementById("hue");
-output.innerHTML = slider.value;
+allHueValues.forEach(i =>{
+    i.addEventListener("input", hueChange);
+    i.value = hueValue;
+})
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
-  document.querySelector('.Sat').innerHTML = null;
-  document.querySelector('.Light').innerHTML = null;
-  satslider();
-  lightslider();
+function hueChange() {
+    hueValue = this.value;
+    document.querySelector('.Sat').innerHTML = null;
+    document.querySelector('.Light').innerHTML = null;
+    satSliderCrt();
+    lightSliderCrt();
+    currentcol.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`;
+    allHueValues.forEach(i =>{
+        i.value = this.value;
+    });
 }
 
-function satslider(){
+function satSliderCrt(){
     let min2 = 360/100;
-    document.querySelector('.Sat').style.gridTemplateColumns =  `repeat(101, ${min2}px)`;
+    document.querySelector('.Sat').style.gridTemplateColumns =  `repeat(100, ${min2}px)`;
 
-    for(let j=0; j<=100; j++){
+    for(let j=1; j<=100; j++){
         let miin2 = document.createElement("div");
-        miin2.className = "miin-clr";
-        miin2.style.backgroundColor = `hsl(${output.innerHTML},${j}%, 50%)`;
+        miin2.style.backgroundColor = `hsl(${hueValue},${j}%, 50%)`;
         document.querySelector('.Sat').appendChild(miin2);
     }
 }
-satslider();
+satSliderCrt();
 
-function lightslider(){
+let satValue= 100;
+let allSatValues = document.querySelectorAll(".satValues");
+
+allSatValues.forEach(i =>{
+    i.addEventListener("input", satChange);
+    i.value = satValue;
+})
+
+function satChange() {
+    satValue = this.value;
+    currentcol.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`;
+    allSatValues.forEach(i =>{
+        i.value = this.value;
+    });
+}
+
+
+function lightSliderCrt(){
     let min2 = 360/100;
-    document.querySelector('.Light').style.gridTemplateColumns =  `repeat(101, ${min2}px)`;
+    document.querySelector('.Light').style.gridTemplateColumns =  `repeat(100, ${min2}px)`;
 
-    for(let j=0; j<=100; j++){
+    for(let j=1; j<=100; j++){
         let miin2 = document.createElement("div");
-        miin2.className = "miin-clr";
-        miin2.style.backgroundColor = `hsl(${output.innerHTML}, 50%, ${j}%)`;
+        miin2.style.backgroundColor = `hsl(${hueValue}, 50%, ${j}%)`;
         document.querySelector('.Light').appendChild(miin2);
     }
 }
-lightslider();
+lightSliderCrt();
 
+let lightValue = 50;
+let allLightValues = document.querySelectorAll(".lightValues");
 
+allLightValues.forEach(i =>{
+    i.addEventListener("input", lightChange);
+    i.value = lightValue;
+})
 
-var slider2 = document.getElementById("myRange2");
-var output2 = document.getElementById("demo2");
-output2.innerHTML = slider2.value;
-
-slider2.oninput = function() {
-  output2.innerHTML = this.value;
+function lightChange(){
+    lightValue = this.value;
+    currentcol.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`;
+    allLightValues.forEach(i =>{
+        i.value = this.value;
+    });
 }
 
-var slider3 = document.getElementById("myRange3");
-var output3 = document.getElementById("demo3");
-output3.innerHTML = slider3.value;
 
-slider3.oninput = function() {
-  output3.innerHTML = this.value;
-}
+
+
+let currentcol = document.querySelector('#current-col');
+let chosenColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`
+currentcol.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`
+
+let currentcolor = document.querySelector('#current-col').style.backgroundColor;
+
+console.log(currentcolor);
+
+//---------------------------------------------------------------------------------------------
+
+document.getElementById("hueMinus").addEventListener('click', ()=>{
+    hueValue -= 10; 
+    hueSlider.value -= 10;
+    currentcol.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`
+});
+
+//---------------------------------------------------------------------------------------------
 //***************************************************************************
 // Mouse Tracking - To Draw lines
 //***************************************************************************
@@ -191,7 +225,7 @@ function changeColor(e){
     if (cmode === 'eraser'){
         e.target.style.backgroundColor = bgcolor;
     } else {
-        e.target.style.backgroundColor = color;
+        e.target.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`;
     }
 }
 
