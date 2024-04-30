@@ -13,6 +13,7 @@ Things that I plan on implement:
 - shading
 - save file option
 - center and maybe pointers to use a ruler
+- responsive, for small screens, small grid and options in hamburger menu
 
 
 And some ideas to improve:

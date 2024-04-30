@@ -20,22 +20,35 @@
             <fieldset>
                 <legend>Color Options</legend>
                 <div id="wrapper">
-                    <div class="Hue"></div>
-                    <input type="range" min="0" max="360" value="50" class="slider" id="hueRange">
+                    <div id="current-col"></div><span>Current Color</span>
                 </div>
-                <button></button>
-                <p>Value: <span id="hue"></span></p>
-                <button></button>
+                <div id="wrapper">
+                    <div class="Hue"></div>
+                    <input type="range" min="0" max="360" value="0" class="slider hueValues" id="hueRange">
+                </div>
+                <div id="wrapper">
+                    <button id="hueMinus">-10</button>
+                    <input type="number" id="hueInput" min="0" max="360" value="0" class="hueValues"></input>
+                    <button>+10</button>
+                </div>
                 <div id="wrapper">
                     <div class="Sat"></div>
-                    <input type="range" min="0" max="100" value="50" class="slider" id="myRange2">
+                    <input type="range" min="0" max="100" value="100" class="slider satValues" id="satRange">
                 </div>
-                <p>Value: <span id="demo2"></span></p>
+                <div id="wrapper">
+                    <button id="minus">-10</button>
+                    <input type="number" id="satInput" min="0" max="100" value="100" class="satValues"></input>
+                    <button>+10</button>
+                </div>
                 <div id="wrapper">
                     <div class="Light"></div>
-                    <input type="range" min="0" max="100" value="50" class="slider" id="myRange3">
+                    <input type="range" min="0" max="100" value="50" class="slider lightValues" id="lightRange">
                 </div>
-                <p>Value: <span id="demo3"></span></p>
+                <div id="wrapper">
+                    <button>-10</button>
+                    <input type="number" id="lightInput" min="0" max="100" value="50" class="lightValues"></input>
+                    <button>+10</button>
+                </div>
             </fieldset>
         </div>
         <div id="control-panel-old">

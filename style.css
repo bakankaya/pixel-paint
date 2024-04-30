@@ -57,7 +57,7 @@ These are placed by hand with margins and stuff, so thread carefully
 *********************************************************************/
 
 #control-panel{
-    width: 380px;
+    width: 400px;
     height: 660px;
     padding: 15px;
     background-color: var(--color-cnvs-shd);
@@ -71,38 +71,31 @@ fieldset{
     margin-bottom: 36px;
     margin-top: 4px;
 }
-
+#current-col{
+    width: 120px;
+    height: 45px;
+    border: white solid 1px;
+}
 #wrapper{
     position: relative;
     height: 45px;
-    width: 360px;
+    width: 370px;
+    display: flex;
 }
-.Hue{
+.Hue, .Sat, .Light{
     border: black solid 1px;
-    height: 40px;
+    height: 26px;
     width: 360px;
     display: grid;
     position: absolute;
+    padding-left: 3px;
 }
-.Sat{
-    border: black solid 1px;
-    height: 40px;
-    width: 360px;
-    display: grid;
-    position: absolute;
-}
-.Light{
-    border: black solid 1px;
-    height: 40px;
-    width: 360px;
-    display: grid;
-    position: absolute;
-}
+
 
 .slider{
     border: black solid 1px;
-    height: 40px;
-    width: 360px;
+    height: 26px;
+    width: 366px;
     background: none;
     position: absolute;
 }
@@ -111,14 +104,14 @@ fieldset{
 -webkit-appearance: none;
 appearance: none;
 width: 3px;
-height: 46px;
+height: 28px;
 background: none;
 cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
 width: 2px;
-height: 43px;
+height: 28px;
 background: none;
 border: black solid 3px;
 border-radius: 0%;
