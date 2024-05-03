@@ -13,84 +13,94 @@
     <title>Pixel Paint</title>
 </head>
 <body>
-    <h2>Pixel Paint</h2>
     <p id="message">This webpage is designed to work on desktop. On mobile screens, it may not work well.</p>
-    <div class="main">
+    <div id="side-panel">
+        <h2>Pixel Paint</h2>
         <div id="control-panel">
             <fieldset>
                 <legend>Color Options</legend>
                 <div id="wrapper">
-                    <div id="current-col"></div><span>Current Color</span>
+                    <div id="current-col" class="colorBox"></div><span>Current Color</span>
                 </div>
                 <div id="wrapper">
                     <div class="Hue"></div>
                     <input type="range" min="0" max="360" value="0" class="slider hueValues" id="hueRange">
                 </div>
                 <div id="wrapper">
-                    <button id="hueMinus">-10</button>
-                    <input type="number" id="hueInput" min="0" max="360" value="0" class="hueValues"></input>
-                    <button>+10</button>
+                    <button id="hueMinus"class="btn-color">-10</button>
+                    <input type="number" id="hueInput" min="0" max="360" value="0" class="range hueValues"></input>
+                    <button id="huePlus" class="btn-color">+10</button>
                 </div>
                 <div id="wrapper">
                     <div class="Sat"></div>
                     <input type="range" min="0" max="100" value="100" class="slider satValues" id="satRange">
                 </div>
                 <div id="wrapper">
-                    <button id="minus">-10</button>
-                    <input type="number" id="satInput" min="0" max="100" value="100" class="satValues"></input>
-                    <button>+10</button>
+                    <button id="satMinus"class="btn-color">-10</button>
+                    <input type="number" id="satInput" min="0" max="100" value="100" class="range satValues"></input>
+                    <button id="satPlus" class="btn-color">+10</button>
                 </div>
                 <div id="wrapper">
                     <div class="Light"></div>
                     <input type="range" min="0" max="100" value="50" class="slider lightValues" id="lightRange">
                 </div>
                 <div id="wrapper">
-                    <button>-10</button>
-                    <input type="number" id="lightInput" min="0" max="100" value="50" class="lightValues"></input>
-                    <button>+10</button>
+                    <button id="lightMinus" class="btn-color">-10</button>
+                    <input type="number" id="lightInput" min="0" max="100" value="50" class="range lightValues"></input>
+                    <button id="lightPlus" class="btn-color">+10</button>
                 </div>
-            </fieldset>
-        </div>
-        <div id="control-panel-old">
-            </fieldset>
-            <fieldset>
-                <legend>Color Options</legend>
-
-                <div class="current-color">
-                    <input id="current-color" type="color" value="#000000"><span>Current Color</span>
-                </div>
-                <button id="paint" class="active">Paint  Mode</button>
-                <button id="eraser">Eraser Mode</button>
-                <button id="toggle">Toggle Grid Lines</button>
             </fieldset>
             <fieldset>
                 <legend>Canvas Options</legend>
                 <div class="backg-color">
-                    <input id="backg-color" type="color" value="#ffffff"><span>Background Color</span>
+                    <span>Color: </span><input id="backg-color" type="color" value="#ffffff">
+                    <label id="grd-size" for="grid-size">Grid Size:</label><output id="show-num"></output><br>
                 </div>
                 <div>
-                    <label id="grd-size" for="grid-size">Grid Size:</label><output id="show-num"></output><br>
-                    <input id="grid-size" type="range" min="8" max="64" value="16" step="4" list="markers">
-                    <datalist id="markers">
-                        <option value="8" label="8" style="flex: 1;"></option>
-                        <option value="16" label="16" style="flex: 2;"></option>
-                        <option value="32" label="32" style="flex: 2;"></option>
-                        <option value="48" label="48" style="flex: 2;"></option>
-                        <option value="64" label="64" style="flex: 1;"></option>
-                    </datalist>
+                    <button id="toggle">Toggle Lines</button>
+                    <button id="toggle2">Toggle Grid Lines</button>
+                    <select id="grid-size" value="48">
+                        <option value="8" >8x8</option>
+                        <option value="16" >16x16</option>
+                        <option value="32" >32x32</option>
+                        <option value="48" selected >48x48</option>
+                        <option value="64" >64x64</option>
+                        <option value="128" >128x128</option>
+                    </select>
                 </div>
                 <button id="apply">Apply/Reset</button>
             </fieldset>
+        </div>
+        <footer>
             <button id="save">Save</button>
-            <div id="footer">
-                <p>2023 &copy; bakankaya
-                <a href="https://github.com/bakankaya" target="_blank"><img src="sources/github-mark-white.png" alt="github" style="width:20px; border:initial"></a></p>
-            </div>
+                <div id="footer">
+                    <p>2023 &copy; bakankaya
+                    <a href="https://github.com/bakankaya" target="_blank"><img src="sources/github-mark-white.png" alt="github" style="width:20px; border:initial"></a></p>
+                </div>
+        </footer>
+    </div>
+    <div class="main">
+        <div id="tool-bar">
+            <button id="paint" class="active">Paint  Mode</button>
+            <button id="eraser">Eraser Mode</button>
+            <button id="filler">Fill</button>
+            <button id="picker">Color Picker</button>
         </div>
         <div id="canvas" draggable="false">
         </div>
+        <!-- <div id="recent">
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+            <div id="current-col" class="recentBox"></div>
+        </div> -->
     </div>
-
     <script src="pixel-paint.js"></script>
 </body>
 </html>

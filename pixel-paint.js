@@ -64,7 +64,7 @@ function cleanCanvas(){
 };
 
 function createCanvas(num){
-    let pixelSize = 600/num;
+    let pixelSize = 760/num;
     document.querySelector('#canvas').style.gridTemplateColumns = `repeat(${num},${pixelSize}px)`;
     document.querySelector('#canvas').style.gridTemplateRows = `repeat(${num},${pixelSize}px)`;
 
