@@ -15,6 +15,10 @@ Things that I plan on implement:
 - center and maybe pointers to use a ruler
 - responsive, for small screens, small grid and options in hamburger menu
 
+- onhover effects
+- show position
+
+
 
 And some ideas to improve:
 

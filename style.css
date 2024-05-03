@@ -22,19 +22,30 @@
 
 html{
     min-height: 100%;
+    max-height: 890px;
     background-color: var(--color-bg);
     font-family: 'IBM Plex Sans', sans-serif;
     color: lightgrey;
+
+}
+body{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#side-panel{
+    border-right: black 2px solid;
+    width: 440px;
 }
 
 h2{
     font-family: 'Press Start 2P', cursive;
-    font-size: 36px;
+    font-size: 28px;
     text-shadow: 2px 2px var(--color-fnt3) ;
     color: white;
-    text-align: center;
-    padding: 60px;
-    padding-bottom: 70px;
+    /* text-align: center; */
+    padding: 20px 0 0 20px;
+    border-bottom: black 4px solid;
 }
 
 #message {
@@ -45,10 +56,8 @@ h2{
 
 .main{
     display:flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    max-width: 1200px;
-    margin:auto ;
 }
 
 /********************************************************************
@@ -57,8 +66,19 @@ These are placed by hand with margins and stuff, so thread carefully
 *********************************************************************/
 
 #control-panel{
+    margin-left: 20px;
     width: 400px;
-    height: 660px;
+    height: 780px;
+    padding: 15px;
+    background-color: var(--color-cnvs-shd);
+    border-radius: 10px;
+    display:grid;
+}
+
+#control-panel2{
+    margin-left: 20px;
+    width: 200px;
+    height: 780px;
     padding: 15px;
     background-color: var(--color-cnvs-shd);
     border-radius: 10px;
@@ -71,7 +91,7 @@ fieldset{
     margin-bottom: 36px;
     margin-top: 4px;
 }
-#current-col{
+.colorBox{
     width: 120px;
     height: 45px;
     border: white solid 1px;
@@ -145,7 +165,7 @@ button{
     background-color: var(--color-bg2);
     color: var(--color-cnvs-bg);
     width: 260px;
-    height: 35px;
+    height: 40px;
     border-radius: 3px;
     border: 2px solid var(--color-fnt);
     font-family: 'IBM Plex Sans', sans-serif;
@@ -181,14 +201,18 @@ datalist{
 /********************************************************************
 The canvas side parameters
 *********************************************************************/
+#tool-bar{
+    padding: 20px 0 5px 0;
+    /* display: grid; */
+    /* grid-template-columns: auto auto auto auto; */
+}
 
 #canvas{
-    width:660px;
-    height: 660px;
-    margin:auto;
+    width:780px;
+    height: 780px;
     display: grid;
     background-color: var(--color-cnvs-shd);
-    padding: 30px;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -197,9 +221,27 @@ The canvas side parameters
     border-left: 1px solid lightgray;
 }
 
+#recent{
+    width: 780px;
+    padding: 5px 10px 10px 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+    background-color: var(--color-cnvs-shd);
+}
+.recentBox{
+    height: 40px;
+    width: auto;
+    border: black 1px solid;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: auto auto;
+}
 #footer{
     color: lightgrey;
     font-family: 'Press Start 2P', cursive;
     font-size: smaller;
-    text-align: center;
+    text-align: right;
 }
