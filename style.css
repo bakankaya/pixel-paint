@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); /* font-family: 'IBM Plex Sans', sans-serif; */
 
 :root {
-    --color-bg: #636363;
+    --color-bg: #1f1d2e;
     --color-bg2: #a6a5a5;
     --color-bg3: #4f4f4f;
     --color-fnt: #dd8d8e;
     --color-fnt2: #86b186;
     --color-fnt3: #66cccc;
     --color-cnvs-bg: #282828;
-    --color-cnvs-shd: #333333;
+    --color-cnvs-shd: #191724;
 }
 
 *{
@@ -28,24 +28,20 @@ html{
     color: lightgrey;
 
 }
-body{
-    display: grid;
-    grid-template-columns: auto auto;
-}
-
-#side-panel{
-    border-right: black 2px solid;
-    width: 440px;
+.body{
+    display: flex;
+    margin: auto;
+    margin-bottom: 0;
+    justify-content: center;
 }
 
 h2{
     font-family: 'Press Start 2P', cursive;
-    font-size: 28px;
+    font-size: 22px;
     text-shadow: 2px 2px var(--color-fnt3) ;
     color: white;
     /* text-align: center; */
     padding: 20px 0 0 20px;
-    border-bottom: black 4px solid;
 }
 
 #message {
@@ -65,19 +61,9 @@ The control panel side parameters
 These are placed by hand with margins and stuff, so thread carefully
 *********************************************************************/
 
-#control-panel{
-    margin-left: 20px;
-    width: 400px;
-    height: 780px;
-    padding: 15px;
-    background-color: var(--color-cnvs-shd);
-    border-radius: 10px;
-    display:grid;
-}
-
-#control-panel2{
-    margin-left: 20px;
-    width: 200px;
+.control-panel{
+    margin: 40px;
+    width: 300px;
     height: 780px;
     padding: 15px;
     background-color: var(--color-cnvs-shd);
@@ -99,13 +85,13 @@ fieldset{
 #wrapper{
     position: relative;
     height: 45px;
-    width: 370px;
+    width: 270px;
     display: flex;
 }
 .Hue, .Sat, .Light{
     border: black solid 1px;
     height: 26px;
-    width: 360px;
+    width: 260px;
     display: grid;
     position: absolute;
     padding-left: 3px;
@@ -115,7 +101,7 @@ fieldset{
 .slider{
     border: black solid 1px;
     height: 26px;
-    width: 366px;
+    width: 266px;
     background: none;
     position: absolute;
 }
@@ -164,12 +150,12 @@ input[type=color]{
 button{
     background-color: var(--color-bg2);
     color: var(--color-cnvs-bg);
-    width: 260px;
+    width: 140px;
     height: 40px;
     border-radius: 3px;
     border: 2px solid var(--color-fnt);
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     margin: 6px;
 }
 
@@ -207,13 +193,18 @@ The canvas side parameters
     /* grid-template-columns: auto auto auto auto; */
 }
 
+.mode {
+    width: 123px;
+    margin: 2px;
+}
+
 #canvas{
     width:780px;
     height: 780px;
     display: grid;
-    background-color: var(--color-cnvs-shd);
-    padding: 10px;
-    border-radius: 10px;
+    background-color: #908caa;
+    /* padding: 10px; */
+    /* border-radius: 10px; */
 }
 
 .pixel-grd{
@@ -222,17 +213,19 @@ The canvas side parameters
 }
 
 #recent{
-    width: 780px;
+    width: 260px;
     padding: 5px 10px 10px 10px;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: repeat(10, auto);
-    background-color: var(--color-cnvs-shd);
+    grid-template-columns: repeat(6, auto);
+    justify-content: center;
+
 }
 .recentBox{
     height: 40px;
-    width: auto;
+    width: 40px;
     border: black 1px solid;
+    margin: 2px;
 }
 
 footer {

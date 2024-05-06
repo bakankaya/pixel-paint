@@ -14,93 +14,111 @@
 </head>
 <body>
     <p id="message">This webpage is designed to work on desktop. On mobile screens, it may not work well.</p>
-    <div id="side-panel">
-        <h2>Pixel Paint</h2>
-        <div id="control-panel">
-            <fieldset>
-                <legend>Color Options</legend>
-                <div id="wrapper">
-                    <div id="current-col" class="colorBox"></div><span>Current Color</span>
+        <div class="body">
+            <div class="control-panel">
+                <h2>Pixel Paint</h2>
+                <fieldset>
+                    <legend>Color Options</legend>
+                    <div id="wrapper">
+                        <div id="current-col" class="colorBox"></div><span>Current Color</span>
+                    </div>
+                    <div id="wrapper">
+                        <span>Hue:</span>
+                        <input type="number" id="hueInput" min="0" max="360" value="0" class="range hueValues"></input>
+                    </div>
+                    <div id="wrapper">
+                        <div class="Hue"></div>
+                        <input type="range" min="0" max="360" value="0" class="slider hueValues" id="hueRange">
+                    </div>
+                    <div id="wrapper">
+                        <span>Saturation:</span>
+                        <input type="number" id="satInput" min="0" max="100" value="100" class="range satValues"></input>
+                    </div>
+                    <div id="wrapper">
+                        <div class="Sat"></div>
+                        <input type="range" min="0" max="100" value="100" class="slider satValues" id="satRange">
+                    </div>
+                    <div id="wrapper">
+                        <span>Light:</span>
+                        <input type="number" id="lightInput" min="0" max="100" value="50" class="range lightValues"></input>
+                    </div>
+                    <div id="wrapper">
+                        <div class="Light"></div>
+                        <input type="range" min="0" max="100" value="50" class="slider lightValues" id="lightRange">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Recent</legend>
+                    <div id="recent">
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                        <div id="current-col" class="recentBox"></div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="main">
+                <div id="tool-bar">
+                    <button id="paint" class="mode active">Paint</button>
+                    <button id="eraser" class="mode">Erase</button>
+                    <button id="filler" class="mode">Fill</button>
+                    <button id="picker" class="mode">Pick</button>
+                    <button id="picker" class="mode">Lighter</button>
+                    <button id="picker" class="mode">Darker</button>
                 </div>
-                <div id="wrapper">
-                    <div class="Hue"></div>
-                    <input type="range" min="0" max="360" value="0" class="slider hueValues" id="hueRange">
+                <div id="canvas" draggable="false">
                 </div>
-                <div id="wrapper">
-                    <button id="hueMinus"class="btn-color">-10</button>
-                    <input type="number" id="hueInput" min="0" max="360" value="0" class="range hueValues"></input>
-                    <button id="huePlus" class="btn-color">+10</button>
-                </div>
-                <div id="wrapper">
-                    <div class="Sat"></div>
-                    <input type="range" min="0" max="100" value="100" class="slider satValues" id="satRange">
-                </div>
-                <div id="wrapper">
-                    <button id="satMinus"class="btn-color">-10</button>
-                    <input type="number" id="satInput" min="0" max="100" value="100" class="range satValues"></input>
-                    <button id="satPlus" class="btn-color">+10</button>
-                </div>
-                <div id="wrapper">
-                    <div class="Light"></div>
-                    <input type="range" min="0" max="100" value="50" class="slider lightValues" id="lightRange">
-                </div>
-                <div id="wrapper">
-                    <button id="lightMinus" class="btn-color">-10</button>
-                    <input type="number" id="lightInput" min="0" max="100" value="50" class="range lightValues"></input>
-                    <button id="lightPlus" class="btn-color">+10</button>
-                </div>
-            </fieldset>
-            <fieldset>
-                <legend>Canvas Options</legend>
-                <div class="backg-color">
-                    <span>Color: </span><input id="backg-color" type="color" value="#ffffff">
-                    <label id="grd-size" for="grid-size">Grid Size:</label><output id="show-num"></output><br>
-                </div>
-                <div>
-                    <button id="toggle">Toggle Lines</button>
-                    <button id="toggle2">Toggle Grid Lines</button>
-                    <select id="grid-size" value="48">
-                        <option value="8" >8x8</option>
-                        <option value="16" >16x16</option>
-                        <option value="32" >32x32</option>
-                        <option value="48" selected >48x48</option>
-                        <option value="64" >64x64</option>
-                        <option value="128" >128x128</option>
-                    </select>
-                </div>
-                <button id="apply">Apply/Reset</button>
-            </fieldset>
+                <!-- <div id="recent">
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                    <div id="current-col" class="recentBox"></div>
+                </div> -->
+            </div>
+            <div class="control-panel">
+                <fieldset>
+                    <legend>Canvas Options</legend>
+                    <!-- <div class="backg-color">
+                        <span>Color: </span><input id="backg-color" type="color" value="#ffffff">
+                        <label id="grd-size" for="grid-size">Grid Size:</label><output id="show-num"></output><br>
+                    </div> -->
+                    <div>
+                        <select id="grid-size" value="48">
+                            <option value="8" >8x8</option>
+                            <option value="16" >16x16</option>
+                            <option value="32" >32x32</option>
+                            <option value="48" selected >48x48</option>
+                            <option value="64" >64x64</option>
+                            <option value="128" >128x128</option>
+                        </select>
+                        <button id="toggle">Toggle Lines</button>
+                        <button id="toggle2">Toggle Grid Lines</button>
+                        <button id="save">Save</button>
+                        <button id="load">Restore</button>
+                        <button id="download">Download</button>
+                    </div>
+                    <button id="apply">Apply/Reset</button>
+                    <footer>
+                        <div id="footer">
+                            <p>2023 &copy; bakankaya
+                            <a href="https://github.com/bakankaya" target="_blank"><img src="sources/github-mark-white.png" alt="github" style="width:20px; border:initial"></a></p>
+                        </div>
+                </footer>
+                </fieldset>
+            </div>
         </div>
-        <footer>
-            <button id="save">Save</button>
-                <div id="footer">
-                    <p>2023 &copy; bakankaya
-                    <a href="https://github.com/bakankaya" target="_blank"><img src="sources/github-mark-white.png" alt="github" style="width:20px; border:initial"></a></p>
-                </div>
-        </footer>
-    </div>
-    <div class="main">
-        <div id="tool-bar">
-            <button id="paint" class="active">Paint  Mode</button>
-            <button id="eraser">Eraser Mode</button>
-            <button id="filler">Fill</button>
-            <button id="picker">Color Picker</button>
-        </div>
-        <div id="canvas" draggable="false">
-        </div>
-        <!-- <div id="recent">
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-            <div id="current-col" class="recentBox"></div>
-        </div> -->
-    </div>
     <script src="pixel-paint.js"></script>
 </body>
 </html>
