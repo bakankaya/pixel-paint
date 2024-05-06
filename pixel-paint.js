@@ -12,13 +12,13 @@ if (window.innerWidth < 500){
 // Color Definers
 //***************************************************************************
 
-let bgcolor = document.querySelector('#backg-color').value;
+// let bgcolor = document.querySelector('#backg-color').value;
 
 
-let backgroundColor = document.querySelector('#backg-color');
-backgroundColor.addEventListener('input', e =>{
-    bgcolor = e.target.value;
-})
+// let backgroundColor = document.querySelector('#backg-color');
+// backgroundColor.addEventListener('input', e =>{
+//     bgcolor = e.target.value;
+// })
 
 
 //***************************************************************************
@@ -45,12 +45,12 @@ function modeSwitch(){ //These can be converted to .toggle in future
 }
 
 let gridnum = document.querySelector('#grid-size');
-let show = document.querySelector('#show-num');
-show.textContent = gridnum.value + "x" + gridnum.value;
+// let show = document.querySelector('#show-num');
+// show.textContent = gridnum.value + "x" + gridnum.value;
 let num = gridnum.value;
 
 gridnum.addEventListener("input",(event) =>{
-    show.textContent = event.target.value + "x" + event.target.value;
+    // show.textContent = event.target.value + "x" + event.target.value;
     num = gridnum.value;
     })
 
@@ -64,14 +64,14 @@ function cleanCanvas(){
 };
 
 function createCanvas(num){
-    let pixelSize = 760/num;
+    let pixelSize = 740/num;
     document.querySelector('#canvas').style.gridTemplateColumns = `repeat(${num},${pixelSize}px)`;
     document.querySelector('#canvas').style.gridTemplateRows = `repeat(${num},${pixelSize}px)`;
 
     for(let i=0;i<num*num;i++){
         let pixel = document.createElement("div");
         pixel.className = "pixel pixel-grd";
-        pixel.style.backgroundColor = bgcolor;
+        // pixel.style.backgroundColor = bgcolor;
         pixel.addEventListener('mouseover', changeColor);  // These two lines are where painting happens
         pixel.addEventListener('mousedown', changeColor);  // with them, function calls changecolor wtih mouse movement
         document.querySelector('#canvas').appendChild(pixel);
@@ -98,7 +98,7 @@ createCanvas(num);
 //***************************************************************************
 
 function hueSliderCrt(){
-    let min = 360/360;
+    let min = 260/360;
     document.querySelector('.Hue').style.gridTemplateColumns =  `repeat(360, ${min}px)`;
 
     for(let j=1; j<=360; j++){
@@ -130,7 +130,7 @@ function hueChange() {
 }
 
 function satSliderCrt(){
-    let min2 = 360/100;
+    let min2 = 260/100;
     document.querySelector('.Sat').style.gridTemplateColumns =  `repeat(100, ${min2}px)`;
 
     for(let j=1; j<=100; j++){
@@ -159,7 +159,7 @@ function satChange() {
 
 
 function lightSliderCrt(){
-    let min2 = 360/100;
+    let min2 = 260/100;
     document.querySelector('.Light').style.gridTemplateColumns =  `repeat(100, ${min2}px)`;
 
     for(let j=1; j<=100; j++){
@@ -199,11 +199,11 @@ console.log(currentcolor);
 
 //---------------------------------------------------------------------------------------------
 
-document.getElementById("hueMinus").addEventListener('click', ()=>{
-    hueValue -= 10; 
-    hueSlider.value -= 10;
-    currentcol.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`
-});
+// document.getElementById("hueMinus").addEventListener('click', ()=>{
+//     hueValue -= 10; 
+//     hueSlider.value -= 10;
+//     currentcol.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`
+// });
 
 //---------------------------------------------------------------------------------------------
 //***************************************************************************
@@ -223,7 +223,7 @@ canvas.addEventListener('mouseup',()=>{ mouseDown = false;})
 function changeColor(e){
     if (e.type === 'mouseover' && !mouseDown) return // This means if event is mouseover, mouseDown must be true so it keeps drawing
     if (cmode === 'eraser'){
-        e.target.style.backgroundColor = bgcolor;
+        e.target.style.backgroundColor = '';
     } else {
         e.target.style.backgroundColor = `hsl(${hueValue},${satValue}%,${lightValue}%)`;
     }
