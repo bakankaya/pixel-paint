@@ -1,15 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* font-family: 'Press Start 2P', cursive; */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); /* font-family: 'IBM Plex Sans', sans-serif; */
 
-:root {
+:root2 {
     --color-bg: #1f1d2e;
-    --color-bg2: #a6a5a5;
+    --color-bg2: #524f67;
     --color-bg3: #4f4f4f;
-    --color-fnt: #dd8d8e;
+    --color-fnt: #31748f;
     --color-fnt2: #86b186;
     --color-fnt3: #66cccc;
-    --color-cnvs-bg: #282828;
+    --color-cnvs-bg: #e0def4;
     --color-cnvs-shd: #191724;
+}
+
+:root {
+    --color-background: #1a1825;
+    --color-control-panels: #26233a;
+    --color-button: #524f67;
+    --color-buttonborder: #31748f;
+    --color-buttonhighlight: #ebbcba;
+    --color-selected: #eb6f92;
+    --color-fieldset: #ebbcba;
+    --color-text: #e0def4;
+    --color-detail: #9ccfd8;
+    --color-detail-2: #908caa;
 }
 
 *{
@@ -23,25 +35,30 @@
 html{
     min-height: 100%;
     max-height: 890px;
-    background-color: var(--color-bg);
-    font-family: 'IBM Plex Sans', sans-serif;
-    color: lightgrey;
-
+    background-color: var(--color-background);
+    font-family:  ui-sans-serif,system-ui,sans-serif,Segoe UI Symbol;
 }
+
 .body{
     display: flex;
     margin: auto;
     margin-bottom: 0;
     justify-content: center;
+    align-items: end;
 }
 
 h2{
     font-family: 'Press Start 2P', cursive;
     font-size: 22px;
-    text-shadow: 2px 2px var(--color-fnt3) ;
-    color: white;
-    /* text-align: center; */
-    padding: 20px 0 0 20px;
+    text-shadow: 2px 2px var(--color-detail) ;
+    color: var(--color-text);
+    padding: 20px 0 10px 20px;
+}
+
+hr{
+    height:2px;
+    border-width:0;
+    background-color: var(--color-fieldset);
 }
 
 #message {
@@ -62,67 +79,123 @@ These are placed by hand with margins and stuff, so thread carefully
 *********************************************************************/
 
 .control-panel{
-    margin: 40px;
+    margin: 0 40px 0 40px;
     width: 300px;
     height: 780px;
     padding: 15px;
-    background-color: var(--color-cnvs-shd);
+    background-color: var(--color-control-panels);
     border-radius: 10px;
-    display:grid;
 }
 
 fieldset{
-    position: relative;
-    border:2px ridge var(--color-fnt);
-    margin-bottom: 36px;
+    /* position: relative; */
+    border:3px solid var(--color-fieldset);
+    border-radius: 3px;
     margin-top: 4px;
+    color: var(--color-text);
 }
+
+#color-info{
+    display: grid;
+}
+
 .colorBox{
-    width: 120px;
-    height: 45px;
-    border: white solid 1px;
+    width: 180px;
+    height: 55px;
+    border: solid 1px var(--color-detail);
+    align-self:center;
+    margin: auto;
+    margin-bottom: 20px;
 }
+
+input[type=number]{
+    height: 28px;
+    width: 60px;
+    background-color: var(--color-text);
+    color: var(--color-background);
+    border: 2px solid var(--color-detail);
+    border-radius: 3px;
+}
+
 #wrapper{
-    position: relative;
-    height: 45px;
+    height: 32px;
     width: 270px;
     display: flex;
+    justify-content: center;
+    line-height: 28px;
 }
+
+
+/********************************************************************
+Sliders
+*********************************************************************/
+
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    height: 26px;
+    width: 262px; /* Specific width is required for Firefox. */
+    background: none; /* Otherwise white in Chrome */
+    position: absolute;
+  }
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+/* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 28px;
+    background: none;
+    border: var(--color-fieldset) solid 2px;
+    border-radius: 5%;
+    cursor: pointer;
+/* margin-top: -14px; You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; Add cool effects to your sliders! */
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    width: 2px;
+    height: 28px;
+    background: none;
+    border: var(--color-fieldset) solid 2px;
+    border-radius: 5%;
+    cursor: pointer;
+  }
+  
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    width: 2px;
+    height: 28px;
+    background: none;
+    border: var(--color-fieldset) solid 2px;
+    border-radius: 5%;
+    cursor: pointer;
+  }
+
 .Hue, .Sat, .Light{
-    border: black solid 1px;
     height: 26px;
     width: 260px;
     display: grid;
     position: absolute;
-    padding-left: 3px;
+    margin: auto;
 }
 
-
-.slider{
-    border: black solid 1px;
-    height: 26px;
-    width: 266px;
-    background: none;
-    position: absolute;
-}
-
-.slider::-webkit-slider-thumb {
--webkit-appearance: none;
-appearance: none;
-width: 3px;
-height: 28px;
-background: none;
-cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-width: 2px;
-height: 28px;
-background: none;
-border: black solid 3px;
-border-radius: 0%;
-cursor: pointer;
-}
 
 legend{
     margin: auto;
@@ -141,32 +214,35 @@ span{
 }
 
 
-input[type=color]{
-    height: 45px;
-    width: 100px;
-}
-
 
 button{
-    background-color: var(--color-bg2);
-    color: var(--color-cnvs-bg);
+    background-color: var(--color-button);
+    color: var(--color-text);
     width: 140px;
     height: 40px;
     border-radius: 3px;
-    border: 2px solid var(--color-fnt);
+    border: 2px solid var(--color-buttonborder);
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 14px;
+    text-align: left;
+    vertical-align: middle;
     margin: 6px;
 }
 
 button.active{
-    background-color: var(--color-bg3);
+    border: 2px solid var(--color-buttonhighlight);
+}
+
+.btn-ico {
+    height: 16px;
+    width: auto;
+    margin-left: 4px;
 }
 
 #grid-size{
     padding: 6px;
     width: 260px;
-    margin-left: 6px;
+    padding-left: 6px;
 }
 
 datalist{
@@ -202,7 +278,7 @@ The canvas side parameters
     width:780px;
     height: 780px;
     display: grid;
-    background-color: #908caa;
+    background-color: white;
     /* padding: 10px; */
     /* border-radius: 10px; */
 }

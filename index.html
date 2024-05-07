@@ -16,12 +16,13 @@
     <p id="message">This webpage is designed to work on desktop. On mobile screens, it may not work well.</p>
         <div class="body">
             <div class="control-panel">
-                <h2>Pixel Paint</h2>
+                <div id="header">
+                    <h2>Pixel Paint</h2>
+                    <hr>
+                </div>
                 <fieldset>
                     <legend>Color Options</legend>
-                    <div id="wrapper">
-                        <div id="current-col" class="colorBox"></div><span>Current Color</span>
-                    </div>
+                    <div id="current-col" class="colorBox"></div>
                     <div id="wrapper">
                         <span>Hue:</span>
                         <input type="number" id="hueInput" min="0" max="360" value="0" class="range hueValues"></input>
@@ -46,6 +47,11 @@
                         <div class="Light"></div>
                         <input type="range" min="0" max="100" value="50" class="slider lightValues" id="lightRange">
                     </div>
+                    <div id="color-info">
+                        <span>hsl:</span><span>data</span>
+                        <span>rgb:</span><span>data</span>
+                        <span>hex:</span><span>data</span>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <legend>Recent</legend>
@@ -65,12 +71,12 @@
             </div>
             <div class="main">
                 <div id="tool-bar">
-                    <button id="paint" class="mode active">Paint</button>
-                    <button id="eraser" class="mode">Erase</button>
-                    <button id="filler" class="mode">Fill</button>
-                    <button id="picker" class="mode">Pick</button>
-                    <button id="picker" class="mode">Lighter</button>
-                    <button id="picker" class="mode">Darker</button>
+                    <button id="paint" class="mode active"><img class="btn-ico" src="./sources/icons8-crayon-48(1).png">Paint</button>
+                    <button id="eraser" class="mode"><img class="btn-ico" src="./sources/icons8-erase-48(1).png">Erase</button>
+                    <button id="filler" class="mode"><img class="btn-ico" src="./sources/icons8-fill-color-48(1).png">Fill</button>
+                    <button id="picker" class="mode"><img class="btn-ico" src="./sources/icons8-color-dropper-48(1).png">Pick</button>
+                    <button id="picker" class="mode"><img class="btn-ico" src="./sources/icons8-contrast-48(8).png">Lighter</button>
+                    <button id="picker" class="mode"><img class="btn-ico" src="./sources/icons8-contrast-48(7).png">Darker</button>
                 </div>
                 <div id="canvas" draggable="false">
                 </div>
@@ -103,13 +109,13 @@
                             <option value="64" >64x64</option>
                             <option value="128" >128x128</option>
                         </select>
-                        <button id="toggle">Toggle Lines</button>
-                        <button id="toggle2">Toggle Grid Lines</button>
-                        <button id="save">Save</button>
-                        <button id="load">Restore</button>
-                        <button id="download">Download</button>
+                        <button id="toggle"><img class="btn-ico" src="./sources/icons8-eye-48.png">Lines</button>
+                        <button id="toggle2"><img class="btn-ico" src="./sources/icons8-ruler-48(1).png">Toggle Grid Lines</button>
+                        <button id="save"><img class="btn-ico" src="./sources/icons8-save-48(2).png">Save</button>
+                        <button id="load"><img class="btn-ico" src="./sources/icons8-restore-page-48(1).png">Restore</button>
+                        <button id="download"><img class="btn-ico" src="./sources/icons8-downloading-updates-48.png">Download</button>
                     </div>
-                    <button id="apply">Apply/Reset</button>
+                    <button id="apply"><img class="btn-ico" src="./sources/icons8-reset-48.png">Apply</button>
                     <footer>
                         <div id="footer">
                             <p>2023 &copy; bakankaya
