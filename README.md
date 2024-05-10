@@ -8,20 +8,18 @@ This project is started to follow [Odin Project](https://www.theodinproject.com/
 
 Things that I plan on implement:
 
-- auto fill
-- zoom in/out
+- color picker
 - shading
 - save file option
-- center and maybe pointers to use a ruler
+- showing a grid as ruler
 - responsive, for small screens, small grid and options in hamburger menu
 
 - onhover effects
-- show position
+- show position (x:0, y:0, hex:#fff)
 
 
 
 And some ideas to improve:
 
 - colorpicker to take from canvas
-- recently used colors as a menu option
 - automatic shape creator
