@@ -68,6 +68,7 @@ hr{
 }
 
 .main{
+    position: relative;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -274,18 +275,39 @@ The canvas side parameters
     margin: 2px;
 }
 
+.wr{
+    position: relative;
+    width:780px;
+    height: 780px;
+    background-color: white;
+}
+
 #canvas{
+    z-index: 2;
+    position: absolute;
     width:780px;
     height: 780px;
     display: grid;
-    background-color: white;
     /* padding: 10px; */
     /* border-radius: 10px; */
 }
 
+#canvas2{
+    z-index: 1;
+    position: absolute;
+    width:780px;
+    height: 780px;
+    display: grid;
+}
+
 .pixel-grd{
-    border-top: 1px solid lightgray;
-    border-left: 1px solid lightgray;
+    border-top: 1px solid hwb(0 93% 7% / 0.9);
+    border-left: 1px solid hwb(0 93% 7% / 0.9);
+}
+.pixel-grd2{
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    z-index:3;
 }
 
 #recent{

@@ -28,9 +28,10 @@ if (window.innerWidth < 500){
 let cmode = 'color';
 document.getElementById('eraser').addEventListener('click', ()=>{ cmode = 'eraser'; modeSwitch();})
 document.getElementById('paint').addEventListener('click', ()=>{ cmode = 'color'; modeSwitch();})
-document.getElementById('apply').addEventListener('click', ()=>{ cleanCanvas(); createCanvas(num);
+document.getElementById('apply').addEventListener('click', ()=>{ cleanCanvas(); createCanvas(num); createCanvas2(num);
                                                                 window.confirm('This will delete all your progress!!\nAre you sure?')})
 document.getElementById('toggle').addEventListener('click', ()=>{ gridToggle()})
+document.getElementById('toggle2').addEventListener('click', ()=>{ gridToggle2()})
 document.getElementById('save').addEventListener('click', ()=>{ window.alert('Not implemented yet 🫤')})
 
 
@@ -61,6 +62,7 @@ gridnum.addEventListener("input",(event) =>{
 
 function cleanCanvas(){
     document.querySelector('#canvas').innerHTML = null;
+    document.querySelector('#canvas2').innerHTML = null;
 };
 
 function createCanvas(num){
@@ -70,26 +72,31 @@ function createCanvas(num){
 
     for(let i=0;i<num*num;i++){
         let pixel = document.createElement("div");
+        pixel.id = i;
         pixel.className = "pixel pixel-grd";
-        // pixel.style.backgroundColor = bgcolor;
+        pixel.setAttribute('draggable', 'false');
         pixel.addEventListener('mouseover', changeColor);  // These two lines are where painting happens
         pixel.addEventListener('mousedown', changeColor);  // with them, function calls changecolor wtih mouse movement
         document.querySelector('#canvas').appendChild(pixel);
         };
 };
 
-// This function was created to reset the parameters to default, but for some reason, it didn't worked as intended.
-// I removed the reset button because, apply button does the same thing anyway.
+function createCanvas2(num){
+    let y = num/8
+    let xxx = 780/y;
+    document.querySelector('#canvas2').style.gridTemplateColumns = `repeat(${y},${xxx}px)`;
+    document.querySelector('#canvas2').style.gridTemplateRows = `repeat(${y},${xxx}px)`;
 
-// function resetCanvas(){
-//     gridnum.value = '16';
-//     bgcolor.value = '#ffffff';
-//     document.querySelector('#current-color').value = 'black';
-//     cleanCanvas();
-//     createCanvas(16);
-// }
+    for(let i=0;i<y*y;i++){
+        let pixel2 = document.createElement("div");
+        pixel2.style.backgroundColor = "transparent";
+        pixel2.className ="pixel2 pixel-grd2"; // with them, function calls changecolor wtih mouse movement
+        document.querySelector('#canvas2').appendChild(pixel2);
+        };
+};
 
 createCanvas(num);
+createCanvas2(num);
 
 
 
@@ -234,5 +241,14 @@ function gridToggle(){
     let pixArr =[...pixels];
     pixArr.forEach(e => {
         e.classList.toggle('pixel-grd');
+    });
+    gridToggle2();
+}
+
+function gridToggle2(){
+    let pixels = document.querySelectorAll('.pixel2');
+    let pixArr =[...pixels];
+    pixArr.forEach(e => {
+        e.classList.toggle('pixel-grd2');
     });
 }

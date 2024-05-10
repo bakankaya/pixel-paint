@@ -53,21 +53,6 @@
                         <span>hex:</span><span>data</span>
                     </div>
                 </fieldset>
-                <fieldset>
-                    <legend>Recent</legend>
-                    <div id="recent">
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                        <div id="current-col" class="recentBox"></div>
-                    </div>
-                </fieldset>
             </div>
             <div class="main">
                 <div id="tool-bar">
@@ -78,28 +63,16 @@
                     <button id="picker" class="mode"><img class="btn-ico" src="./sources/icons8-contrast-48(8).png">Lighter</button>
                     <button id="picker" class="mode"><img class="btn-ico" src="./sources/icons8-contrast-48(7).png">Darker</button>
                 </div>
-                <div id="canvas" draggable="false">
+                <div class="wr">
+                    <div id="canvas" draggable="false">
+                    </div>
+                    <div id="canvas2" draggable="false">
+                    </div>
                 </div>
-                <!-- <div id="recent">
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                    <div id="current-col" class="recentBox"></div>
-                </div> -->
             </div>
             <div class="control-panel">
                 <fieldset>
                     <legend>Canvas Options</legend>
-                    <!-- <div class="backg-color">
-                        <span>Color: </span><input id="backg-color" type="color" value="#ffffff">
-                        <label id="grd-size" for="grid-size">Grid Size:</label><output id="show-num"></output><br>
-                    </div> -->
                     <div>
                         <select id="grid-size" value="48">
                             <option value="8" >8x8</option>
