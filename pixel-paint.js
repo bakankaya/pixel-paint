@@ -32,7 +32,7 @@ document.getElementById('apply').addEventListener('click', ()=>{ cleanCanvas(); 
                                                                 window.confirm('This will delete all your progress!!\nAre you sure?')})
 document.getElementById('toggle').addEventListener('click', ()=>{ gridToggle()})
 document.getElementById('toggle2').addEventListener('click', ()=>{ gridToggle2()})
-document.getElementById('save').addEventListener('click', ()=>{ window.alert('Not implemented yet 🫤')})
+// document.getElementById('save').addEventListener('click', ()=>{ window.alert('Not implemented yet 🫤')})
 
 
 function modeSwitch(){ //These can be converted to .toggle in future
@@ -252,3 +252,118 @@ function gridToggle2(){
         e.classList.toggle('pixel-grd2');
     });
 }
+
+
+//***************************************************************************
+// Matrix Shit
+//***************************************************************************
+
+function downloadImage() {
+    // Build Pixel Matrix from Grid
+    const matrix = [];
+    const divs = document.querySelectorAll('.pixel');
+    for (let i = 0; i < divs.length; i++) {
+        const css = (divs[i].style.backgroundColor) ? divs[i].style.backgroundColor : null;
+        if (css) {
+            const rgb = css.replace('rgb(', '').replace(')', '').split(', ');
+            matrix.push(parseInt(rgb[0]));
+            matrix.push(parseInt(rgb[1]));
+            matrix.push(parseInt(rgb[2]));
+            matrix.push(255);
+        } else {
+            matrix.push(0);
+            matrix.push(0);
+            matrix.push(0);
+            matrix.push(0);
+        }
+    }
+
+        // Set up Canvas
+        const pixelCanvas  = document.getElementById('pixel_canvas');
+        pixelCanvas.height = num;
+        pixelCanvas.width  = num;
+
+        // Create Image from Pixel Matrix
+        const canvasContext = pixelCanvas.getContext('2d');
+        const pixelImage   = canvasContext.createImageData(num, num);
+        pixelImage.data.set(matrix);
+
+        // Add Image to Canvas
+        canvasContext.putImageData(pixelImage, 0, 0);
+
+        // // Create Download Link
+        const link = document.createElement('a');
+        link.download = "image.png";
+        link.href = pixelCanvas.toDataURL();
+        link.id = 'download_image';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+//            document.getElementById('download_image').href = pixelCanvas.toDataURL('image/png');
+        // document.getElementById('download_image').click();
+};
+
+
+ // Create Download Link
+//  document.getElementById('download').href = pixelCanvas.toDataURL('image/png');
+ document.getElementById('download').addEventListener('click', ()=>{ downloadImage()})
+
+
+//  function downloadURI(uri, name) {
+//     var link = document.createElement('a');
+//     link.download = name;
+//     link.href = uri;
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+//     delete link;
+//   }
+
+//   document.getElementById('load').addEventListener(
+//     'click',
+//     function () {
+//       var dataURL = pixelCanvas.toDataURL();
+//       downloadURI(dataURL, 'stage.png');
+//     },)
+
+
+
+function storeImage() {
+    // Check for Existing Image
+    if (!this.localStorage.hasOwnProperty('paint_size') || localStorage.hasOwnProperty('paint_matrix')) {
+        // Show Modal for First Save
+        // this.openModal('save_modal');
+    }
+
+    // Build Matrix
+    const matrix = [];
+    const divs = document.querySelectorAll('.pixel');
+    for (let i = 0; i < divs.length; i++) {
+        matrix[i] = (divs[i].style.backgroundColor) ? divs[i].style.backgroundColor : null;
+    }
+
+    // Store Image
+    localStorage.setItem('paint_matrix', JSON.stringify(matrix));
+    localStorage.setItem('paint_size', num);
+    console.log('Image Saved');
+};
+
+function loadImage(){
+    if (localStorage.hasOwnProperty('paint_matrix')) {
+
+        cleanCanvas();
+        const savedNum = localStorage.getItem('paint_size');
+        createCanvas(savedNum);
+        // Build Image from Stored Matrix
+        const matrix = JSON.parse(localStorage.getItem('paint_matrix'));
+        const divs = document.querySelectorAll('.pixel');
+        for (let i = 0; i < divs.length; i++) {
+            divs[i].style.backgroundColor = matrix[i];
+        }
+    }
+}
+
+document.getElementById('save').addEventListener('click', ()=>{ storeImage()});
+document.getElementById('load').addEventListener('click', ()=>{ loadImage() });
+
+// WHEN LOAD IMAGE USED, CHANGE GRİD SİZE NUMBER AS WELL

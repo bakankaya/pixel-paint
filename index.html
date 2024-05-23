@@ -68,6 +68,7 @@
                     </div>
                     <div id="canvas2" draggable="false">
                     </div>
+                    <canvas id="pixel_canvas" style="visibility: hidden; z-index: -2;position: absolute;"></canvas>
                 </div>
             </div>
             <div class="control-panel">
@@ -82,13 +83,14 @@
                             <option value="64" >64x64</option>
                             <option value="128" >128x128</option>
                         </select>
+                        <button id="apply"><img class="btn-ico" src="./sources/icons8-reset-48.png">Apply</button>
                         <button id="toggle"><img class="btn-ico" src="./sources/icons8-eye-48.png">Lines</button>
                         <button id="toggle2"><img class="btn-ico" src="./sources/icons8-ruler-48(1).png">Toggle Grid Lines</button>
                         <button id="save"><img class="btn-ico" src="./sources/icons8-save-48(2).png">Save</button>
                         <button id="load"><img class="btn-ico" src="./sources/icons8-restore-page-48(1).png">Restore</button>
-                        <button id="download"><img class="btn-ico" src="./sources/icons8-downloading-updates-48.png">Download</button>
+                        <button id="download" download="image.png"><img class="btn-ico" src="./sources/icons8-downloading-updates-48.png">Download</button>
                     </div>
-                    <button id="apply"><img class="btn-ico" src="./sources/icons8-reset-48.png">Apply</button>
+
                     <footer>
                         <div id="footer">
                             <p>2023 &copy; bakankaya
